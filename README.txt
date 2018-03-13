@@ -1,5 +1,5 @@
 Authors: Y. Drori 		Google Inc.,
-         A. Taylor		INRIA/Ecole Normale Supérieure Paris.
+         A. Taylor		INRIA/Ecole Normale Supérieure (Paris, PSL University).
 
 Date:   March, 2018
 
