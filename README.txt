@@ -26,7 +26,7 @@ Note that figures from the work were generated using Mosek (the other solvers sh
 
 Link to YALMIP: http://users.isy.liu.se/johanl/yalmip/pmwiki.php?n=Main.Download
 
-Link to MOSEK: https://mosek.com/
+Link to Mosek: https://mosek.com/
 Link to SeDuMi: http://sedumi.ie.lehigh.edu/
 Link to SDPT3: http://www.math.cmu.edu/~reha/sdpt3.html
 
