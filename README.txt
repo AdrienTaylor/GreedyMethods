@@ -20,6 +20,8 @@ with some semidefinite solver (e.g. Mosek, Sedumi, SDPT3, ...).
 Once YALMIP and the SDP solver installed, the user can put the code in the
 directory of his choice and execute the demo file step by step.
 
+Note that figures from the work were generated using Mosek (the other solvers should provide similar results; probably not with the same accuracy).
+
 ----- Links
 
 Link to YALMIP: http://users.isy.liu.se/johanl/yalmip/pmwiki.php?n=Main.Download
