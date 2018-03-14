@@ -30,8 +30,7 @@ function [Algo, wc, err]=Efficient_form2_SmoothStronglyConvex(R,mu,L,N,verb)
 %                 err = max_{i,j} [h_{i,j}(efficient form 1)-
 %                                                h_{i,j}(efficient form 2)]
 %
-
-
+%
 % Usage:
 %   N = 10; L = 1; mu = .1; R = 1; verb = 0; 
 %   [Algo, wc, err] = Efficient_form2_SmoothStronglyConvex(R,mu,L,N,verb)
