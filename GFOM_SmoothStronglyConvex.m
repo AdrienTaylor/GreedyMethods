@@ -20,14 +20,15 @@ function [wc, h, beta, gamma]=GFOM_SmoothStronglyConvex(N,L,mu,R,verb)
 %   -gamma:     dual variables in the text; corresponding constraint:
 %               <g_i,x_j-x_0>==0 :  gamma(i+1,j) (0<=j<i=1,...N)
 %
+%
 % Usage:
 %   N = 1; L = 1; mu = .1; R = 1; verb = 0;
 %   [wc, h, beta, gamma]=GFOM_SmoothStronglyConvex(N,L,mu,R,verb)
 %
 % ** To reproduce the numerics from the paper, one needs to use mosek and
 % to increase the default accuracy (see options for the solver below).
-% ** If you don't have mosek installed, you change comment line #90 and
-% comment out line #91
+% ** If you don't have mosek installed, you comment line #94 and
+% comment out line #95
 
 %% Initialize coordinates
 
