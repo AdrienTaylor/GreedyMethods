@@ -6,7 +6,7 @@ function [Algo, wc, err]=Efficient_form2_SmoothStronglyConvex(R,mu,L,N,verb)
 %   - L:        Smoothness constant L >= 0
 %   - R:        Initial condition: ||x_0-x_*|| <= R with R >= 0
 %   - verb:     Let the solver talk? (Verbose mode) [0/1]
-
+%
 % Output: 
 %   
 %   - Algo.zeta: values of zeta for the algorithm of the "efficient form 2"
@@ -84,17 +84,3 @@ err   = max(max(abs(h-x_reconstructed)));
 Algo.h      = x_reconstructed;
 Algo.eta    = eta;
 Algo.zeta   = zeta;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
