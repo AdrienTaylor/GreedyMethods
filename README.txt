@@ -5,7 +5,7 @@ Date:   March, 2018
 
 Version: March 13, 2018
 
-In this repository, you will find resources for the article entitled "Efficient First-order Methods for Convex Minimization: a Constructive Approach". Content:
+In this repository, you will find resources for the work entitled "Efficient First-order Methods for Convex Minimization: a Constructive Approach". Content:
 
 (1) Files for generating the worst-case comparisons between the different methods (fast gradient, triple momentum and optimized gradient) for miminimizing smooth (strongly) convex functions, using the Performance Estimation Toolbox
 (available at https://github.com/AdrienTaylor/Performance-Estimation-Toolbox).
