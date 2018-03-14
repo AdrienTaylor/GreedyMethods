@@ -90,5 +90,3 @@ Algo.C.c1 = c1;
 Algo.C.c2 = c2;
 Algo.C.c3 = c3;
 Algo.C.c4 = c4;
-
-
