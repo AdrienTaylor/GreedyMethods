@@ -6,7 +6,7 @@ function [Algo, wc, err]=Efficient_form_SmoothStronglyConvex(R,mu,L,N,verb)
 %   - L:        Smoothness constant L >= 0
 %   - N:        Number of iterations N > 0
 %   - verb:     Let the solver talk? (Verbose mode) [0/1]
-
+%
 % Output:
 %   
 %   - Algo.B    Algo.B.bj(i) provides the values of b^{(j)}_i for the 
