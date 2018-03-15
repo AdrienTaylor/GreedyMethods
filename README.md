@@ -57,6 +57,6 @@ Algo.eta.'
 ```
 
 ## Authors
-- [**Yoel Drori**]
+- **Yoel Drori**
 - [**Adrien Taylor**](http://www.di.ens.fr/~ataylor/)
 
