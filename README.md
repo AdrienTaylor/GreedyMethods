@@ -21,7 +21,7 @@ To use the code, download the repository and add it to the path in Matlab.
 - [`StronglyConvexFastGradientMethod`](PESTO_files/pesto_StronglyConvexFastGradientMethod.m) Numerically computes the worst-case performance of FGM for smooth strongly convex minimization.
 - [`StronglyConvexTripleMomentumMethod`](PESTO_files/pesto_StronglyConvexTripleMomentumMethod.m) Numerically computes the worst-case performance of TMM for smooth strongly convex minimization.
 
-- [`demo_script`](SSEP_files/demo_script.m) This script show how to reproduce the results from Tables 1-2 in the paper (numerical computations of efficient formulations).
+- [`demo_script`](SSEP_files/demo_script.m) This script shows how to reproduce the results from Tables 1-2 in the paper (numerical computations of efficient formulations).
 - [`GFOM_SmoothStronglyConvex`](SSEP_files/GFOM_SmoothStronglyConvex.m) This function generates worst-case certificates for the GFOM in the smooth (possibly strongly) convex case, along with the SSEP-base fixed-step method.
 - [`Efficient_form_SmoothStronglyConvex`](SSEP_files/Efficient_form_SmoothStronglyConvex.m) This function generates an efficiently-implementable (efficient form 1) method from the SSEP-based method for smooth (possibly strongly) convex minimization.
 - [`Efficient_form2_SmoothStronglyConvex`](SSEP_files/Efficient_form2_SmoothStronglyConvex.m) This function generates an efficiently-implementable (efficient form 2) method from the SSEP-based method for smooth (possibly strongly) convex minimization.
