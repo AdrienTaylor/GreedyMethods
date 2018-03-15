@@ -4,10 +4,13 @@ This code can be used to reproduce the results from the work:
 
 > [1] Yoel Drori, Adrien B Taylor, "Efficient First-order Methods for Convex Minimization: a Constructive Approach", 2018.
 
-## Requirements
+## Getting started
 
-This code requires [YALMIP](https://yalmip.github.io/) along with a suitable SDP solver (e.g., Sedumi, SDPT3, Mosek).
+To use the code, download the repository and add it to the path in Matlab.
 
+**Notes:** 
+- This code requires [YALMIP](https://yalmip.github.io/) along with a suitable SDP solver (e.g., Sedumi, SDPT3, Mosek).
+- The files in the PESTO_files folder requires the installation of the Performance Estimation Toolbox ([PESTO](https://github.com/AdrienTaylor/Performance-Estimation-Toolbox))
 ## List of files
 
 - [`GreedyFirstOrderMethod_NonSmooth`](PESTO_files/pesto_GreedyFirstOrderMethod_NonSmooth.m) Numerically computes the worst-case performance of the GFOM for non-smooth convex minimization.
