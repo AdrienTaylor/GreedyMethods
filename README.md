@@ -10,7 +10,8 @@ To use the code, download the repository and add it to the path in Matlab.
 
 **Notes:** 
 - This code requires [YALMIP](https://yalmip.github.io/) along with a suitable SDP solver (e.g., Sedumi, SDPT3, Mosek).
-- The files in the PESTO_files folder requires the installation of the Performance Estimation Toolbox ([PESTO](https://github.com/AdrienTaylor/Performance-Estimation-Toolbox))
+- The files in the PESTO_files folder requires the installation of the Performance Estimation Toolbox ([PESTO](https://github.com/AdrienTaylor/Performance-Estimation-Toolbox)).
+
 ## List of files
 
 - [`GreedyFirstOrderMethod_NonSmooth`](PESTO_files/pesto_GreedyFirstOrderMethod_NonSmooth.m) Numerically computes the worst-case performance of the GFOM for non-smooth convex minimization.
