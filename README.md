@@ -14,12 +14,15 @@ To use the code, download the repository and add it to the path in Matlab.
 
 ## List of files
 
+(1) PESTO_* files:
 - [`GreedyFirstOrderMethod_NonSmooth`](PESTO_files/pesto_GreedyFirstOrderMethod_NonSmooth.m) Numerically computes the worst-case performance of the GFOM for non-smooth convex minimization.
 - [`SSEP_SubgradientMethod`](PESTO_files/pesto_SSEP_SubgradientMethod.m) Numerically computes the worst-case performance of the SSEP-based subgradient method for non-smooth convex minimization.
 - [`GreedyFirstOrderMethod_Smooth`](PESTO_files/pesto_GreedyFirstOrderMethod_Smooth.m) Numerically computes the worst-case performance of the GFOM for smooth (possibly strongly) convex minimization.
 - [`OptimizedGradientMethod`](PESTO_files/pesto_OptimizedGradientMethod.m) Numerically computes the worst-case performance of OGM for smooth (possibly strongly) convex minimization.
 - [`StronglyConvexFastGradientMethod`](PESTO_files/pesto_StronglyConvexFastGradientMethod.m) Numerically computes the worst-case performance of FGM for smooth strongly convex minimization.
 - [`StronglyConvexTripleMomentumMethod`](PESTO_files/pesto_StronglyConvexTripleMomentumMethod.m) Numerically computes the worst-case performance of TMM for smooth strongly convex minimization.
+
+(2) Subspace-search elimination procedure (SSEP):
 
 - [`demo_script`](SSEP_files/demo_script.m) This script shows how to reproduce the results from Tables 1-2 in the paper (numerical computations of efficient formulations).
 - [`GFOM_SmoothStronglyConvex`](SSEP_files/GFOM_SmoothStronglyConvex.m) This function generates worst-case certificates for the GFOM in the smooth (possibly strongly) convex case, along with the SSEP-base fixed-step method.
