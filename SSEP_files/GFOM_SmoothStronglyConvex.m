@@ -26,8 +26,8 @@ function [wc, h, beta, gamma]=GFOM_SmoothStronglyConvex(N,L,mu,R,verb)
 %
 % ** To reproduce the numerics from the paper, one needs to use mosek and
 % to increase the default accuracy (see options for the solver below).
-% ** If you don't have mosek installed, you change comment line #90 and
-% comment out line #91
+% ** If you don't have mosek installed, you change comment line #93 and
+% comment out line #94
 
 %% Initialize coordinates
 
