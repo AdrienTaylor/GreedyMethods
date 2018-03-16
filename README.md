@@ -41,13 +41,13 @@ The following code is contained in [`demo_script.m`](SSEP_files/demo_script.m)
 
 %%  Parameters
 
-N     = 10; 
-L     = 1;
-kappa = 100;
-R     = 1;
-verb  = 1;
-mu    = L/kappa;
+N     = 10;       % Number of iterations
+L     = 1;        % Lipschitz constant
+kappa = 100;      % Condition ratio (can be set to 'kappa = Inf')
+R     = 1;        % Initial distance
+mu    = L/kappa;  % Strong convexity constant
 
+verb  = 1;        % [0/1] Let the solver talk ?
 
 %% Efficient form 1
 
