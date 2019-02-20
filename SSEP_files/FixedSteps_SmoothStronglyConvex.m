@@ -1,4 +1,4 @@
-function [wc, h, beta, gamma]=GFOM_SmoothStronglyConvex(N,L,mu,R,verb)
+function [wc]=FixedSteps_SmoothStronglyConvex(h,N,L,mu,R,verb)
 
 % Input:
 %   - N:        Number of iterations N>0
@@ -31,11 +31,10 @@ function [wc, h, beta, gamma]=GFOM_SmoothStronglyConvex(N,L,mu,R,verb)
 
 %% Initialize coordinates
 
-dim              = 2*(N+1);
-x                = zeros(N+2,dim);
-x(1:N+1,1:N+1)   = eye(N+1);
+dim              = N + 2; %[x0 g0 ... gN]
+x                = [h; zeros(1,dim)];
 g                = zeros(N+2,dim);
-g(1:N+1,N+2:dim) = eye(N+1);
+g(1:N+1,2:dim) = eye(N+1);
 
 %% Write the PEP for GFOM
 
@@ -50,7 +49,6 @@ cons_count = 1;               % count the number of constraints
 for i = 1:N+2
     for j = 1:N+2
         if (i ~= j)
-            
             cons = cons+(f(j)-f(i)+g(j,:)*G*(x(i,:)-x(j,:)).'+...
                 1/(2*(1-mu/L))*(1/L*(g(i,:)-g(j,:))*G*(g(i,:)-g(j,:)).'+...
                 mu*(x(i,:)-x(j,:))*G*(x(i,:)-x(j,:)).'-...
@@ -63,29 +61,6 @@ for i = 1:N+2
 end
 
 
-start_gfom_cons0 = cons_count+1;  % Save the # of the first constraint of
-% type <gi;gj> == 0
-for j = 2:N+1
-    for i = 1:j-1
-        
-        cons = cons+(g(i,:)*G*g(j,:).'==0);
-        
-        cons_count = cons_count+1;
-        
-    end
-end
-start_gfom_cons1 = cons_count+1;% Save the # of the first constraint of
-% type <gj;x_(i-1)-x_0> == 0
-for j = 2:N+1
-    for i = 2:j
-        
-        cons = cons+(g(j,:)*G*(x(i,:)-x(1,:)).'==0);
-        
-        cons_count = cons_count+1;
-        
-    end
-end
-
 % Set the objective function and solve the PEP
 obj=f(N+1)-f(N+2); %f(xN)-f(x*)
 
@@ -97,62 +72,6 @@ optimize(cons,-obj,ops);
 
 wc = double(obj);
 
-%% Recover step sizes from the dual variables
-
-
-aggregated_iterations = zeros(N+1,dim);
-count                 = start_gfom_cons0+1;
-
-for j = 2:N+1
-    for i = 1:j-1
-        
-        beta(j,i)                  = dual(cons(count));
-        aggregated_iterations(j,:) = aggregated_iterations(j,:)+dual(cons(count))*g(i,:);
-        count                      = count+1;
-        
-    end
-end
-
-count = start_gfom_cons1+1;
-for j = 2:N+1
-    for i = 2:j
-        
-        gamma(j,i)                 = dual(cons(count));
-        aggregated_iterations(j,:) = aggregated_iterations(j,:)+...
-            dual(cons(count))*(x(i,:)-x(1,:));
-        count                      = count+1;
-        
-    end
-end
-
-aggregated_iterations = aggregated_iterations(2:end,:);
-for i = 1:N
-    
-    aggregated_iterations(i,:) = aggregated_iterations(i,:)/...
-        aggregated_iterations(i,i+1);
-    
-end
-
-% recover algorithm in the canonical form x_i=x_0-\sum h_ij g_j
-
-h = [zeros(1,dim);aggregated_iterations];
-h(1,1) = 1;
-
-for i = 2:N+1
-    for j = 2:i-1
-        
-        h(i,:) = (h(i,:)-h(j,:)*h(i,j));
-        
-    end
-end
-
-for i = 2:N+1
-    
-    h(i,:) = h(i,:)*h(i,1);
-    
-end
-
-h = h(:,[1 (N+2):(2*N+2)]);
 
 
 

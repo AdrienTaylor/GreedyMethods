@@ -1,4 +1,4 @@
-function [Algo, wc, err]=Efficient_form2_SmoothStronglyConvex(R,mu,L,N,verb)
+function [Algo, wc, err, h]=FactoredSSEP_SmoothStronglyConvex(R,mu,L,N,verb)
 
 % Input:
 %   - N:        Number of iterations N > 0
@@ -9,10 +9,9 @@ function [Algo, wc, err]=Efficient_form2_SmoothStronglyConvex(R,mu,L,N,verb)
 
 % Output: 
 %   
-%   - Algo.zeta: values of zeta for the algorithm of the "efficient form 2"
+%   - Algo.zeta: values of zeta for the factored SSEP method
 %
 %   - Algo.eta:  values of eta for the previous algorithm
-%       
 %            y_i = x_{i-1}-1/L f'(x_{i-1})
 %            x_i = y_i+Algo.zeta(i)*(y_i-y_{i-1})+Algo.eta(i)*(y_i-x_{i-1})
 %
@@ -39,29 +38,20 @@ function [Algo, wc, err]=Efficient_form2_SmoothStronglyConvex(R,mu,L,N,verb)
 
 %% Efficient form 2
 
-% (1) Obtain a worst-case certificate along with an "efficient form 1". 
-[Algo, wc, ~]=Efficient_form_SmoothStronglyConvex(R,mu,L,N,verb);
+% (1) Obtain a worst-case certificate along with the corresponding SSEP
+% method
+[wc, h, ~, ~] = GFOM_SmoothStronglyConvex(N, L, mu, R, verb);
 
-b1 = Algo.B.b1;
-b2 = Algo.B.b2;
-b3 = Algo.B.b3;
-
-c1 = Algo.C.c1;
-c2 = Algo.C.c2;
-c3 = Algo.C.c3;
-c4 = Algo.C.c4;
-
-h = Algo.h;
 
 % (2) Obtain values for zeta's and eta's using necessary conditions
 zeta = zeros(N,1);
 eta  = zeros(N,1);
 
-eta(1) = L*(b1(1)*b2(1)+b3(1))/c4(1)-1;
+hh = - h(2:end,2:end);
+eta(1) = hh(1,1)-1;
 for i = 1:N-1
-    zeta(i+1) = L*(b1(i+1)*b2(i))/(c4(i+1)*(zeta(i)+eta(i)))-...
-        (1+1/(zeta(i)+eta(i)))*(1+(c1(i+1)*c2(i)+c3(i+1))/c4(i+1));
-    eta(i+1)  = L*(b1(i+1)*b2(i+1)+b3(i+1))/c4(i+1) - zeta(i+1) - 1;
+    zeta(i+1) = (hh(i+1,i)-hh(i,i))/(hh(i,i)-1/L);
+    eta(i+1)  = L*(hh(i+1,i+1)-1-zeta(i+1));
 end
 
 % (3) Validate the method via the canonical form
@@ -84,7 +74,6 @@ err   = max(max(abs(h-x_reconstructed)));
 Algo.h      = x_reconstructed;
 Algo.eta    = eta;
 Algo.zeta   = zeta;
-
 
 
 
