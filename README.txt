@@ -9,16 +9,16 @@ In this repository, you will find resources for the work entitled
          "Efficient First-order Methods for Convex Minimization: a Constructive Approach";
 it contents:
 
-(1) [Folder PESTO_files] Matlab files for generating the worst-case comparisons between the different methods 
+(1) [Folder SSEP_files] Files to generate the step sizes for the SSEP-based gradient method for smooth strongly
+convex minimization. Those steps could be generated via PESTO, but the resulting code would be more difficult
+to read.
+
+(2) [Folder PESTO_files] Matlab files for generating the worst-case comparisons between the different methods 
 (subgradient, fast gradient, triple momentum, optimized gradient, and SSEP-based methods) for miminimizing 
 the different classes of functions treated in the work, using the Performance Estimation Toolbox
 (available from https://github.com/AdrienTaylor/Performance-Estimation-Toolbox).
 
-(2) [Folder SSEP_files] Files to generate the step sizes for the SSEP-based gradient method for smooth strongly
-convex minimization. Those steps could be generated via PESTO, but the resulting code would be more difficult
-to read.
-
-(3) [Folder Data] This folder contains the step sizes generated via the SSEP. Those files can be used for
+(3) [Folder Data] This folder contains the step-sizes generated via the SSEP. Those files can be used for
 computing the worst-case guarantees for the resulting fixed-step procedures (e.g., via the PESTO toolbox
 and the content of the PESTO_files folder.
 
