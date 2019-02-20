@@ -56,11 +56,11 @@ mu    = L/kappa;% Strong convexity (defined from condition number)
 fprintf('Computing ... (a few seconds for N=10, possibly much longer when increasing N)\n')
 
 [Algo, wc_GFOM, err, h] = FactoredSSEP_SmoothStronglyConvex(R,mu,L,N,verb);
-fprintf('Compution for GFOM (1/3): DONE\n')
+fprintf('Computation for GFOM (1/3): DONE\n')
 [wc_SSEP]          = FixedSteps_SmoothStronglyConvex(h,N,L,mu,R,verb);
-fprintf('Compution for SSEP (2/3): DONE\n')
+fprintf('Computation for SSEP (2/3): DONE\n')
 [wc_FactoredSSEP]  = FixedSteps_SmoothStronglyConvex(Algo.h,N,L,mu,R,verb);
-fprintf('Compution for Factored SSEP (3/3): DONE\n')
+fprintf('Computation for Factored SSEP (3/3): DONE\n')
 
 fprintf(['Worst case guarantee for GFOM: L||x0-x*||^2/%5.2f \t for SSEP:'...
     'L||x0-x*||^2/%5.2f \t for factored SSEP: L||x0-x*||^2/%5.2f\n'],...
