@@ -4,6 +4,11 @@ This code can be used to reproduce the results from the work (on [arXiv](https:/
 
 > [1] Yoel Drori, Adrien B Taylor, "Efficient First-order Methods for Convex Minimization: a Constructive Approach",  	arXiv:1803.05676, 2018.
 
+## Authors
+
+- **Yoel Drori**
+- [**Adrien Taylor**](http://www.di.ens.fr/~ataylor/)
+
 ## Getting started
 
 To use the code, download the repository and add it to the path in Matlab.
@@ -84,8 +89,4 @@ end
 
 
 ```
-
-## Authors
-- **Yoel Drori**
-- [**Adrien Taylor**](http://www.di.ens.fr/~ataylor/)
 
