@@ -28,14 +28,14 @@ P.InitialCondition((x0-xs)^2<=1); % Add an initial condition ||x0-xs||^2<= 1
 N=10;		% number of iterations
 
 x=cell(N+1,1);%we store all the x's in a cell (for convenience)
-g=cell(N+1,1);%we store all the x's in a cell (for convenience)
+g=cell(N+1,1);%we store all the g's in a cell (for convenience)
 x{1}=x0;
 g{1}=F.gradient(x{1});
 y=x0;
 theta=1;
 dirs{1}=g{1};
 for i=1:N
-    [x{i+1}, g{i+1}] = exactlinesearch_step(x{i},F,dirs);
+    [x{i+1}, g{i+1}] = exactlinesearch_step(x{i},F,dirs); % subspace search in the span {dirs{1},...,dirs{end}}
     dirs{2+(i-1)*2}  = x{i+1} - x{1};
     dirs{3+(i-1)*2}  = g{i+1};
 end
