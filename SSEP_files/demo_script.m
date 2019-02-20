@@ -3,12 +3,12 @@
 % fixed-step method for smooth strongly convex minimization)
 clc; clear all;
 
-N     = 38;     % Number of iterations
+N     = 10;     % Number of iterations
 L     = 1;      % Lipschitz constant
 kappa = 100;    % Condition number 1 < kappa <= Inf
 R     = 1;      % Initial condition; i.e., ||x0-x*|| <= R
-verb  = 0;      % Verbose
-saved = 1;      % Save data ?
+verb  = 0;      % Verbose solver ? [0/1]
+saved = 0;      % Save data ? [0/1]
 
 mu    = L/kappa;% Strong convexity (defined from condition number)
 fprintf('Computing ... (a few seconds for N=10, possibly much longer when increasing N)\n')
@@ -20,7 +20,9 @@ fprintf('Compution for SSEP (2/3): DONE\n')
 [wc_FactoredSSEP]  = FixedSteps_SmoothStronglyConvex(Algo.h,N,L,mu,R,verb);
 fprintf('Compution for Factored SSEP (3/3): DONE\n')
 
-fprintf('Worst case guarantee for GFOM: L||x0-x*||^2/%5.2f \t for SSEP: L||x0-x*||^2/%5.2f \t for factored SSEP: L||x0-x*||^2/%5.2f\n',1/wc_GFOM, 1/wc_SSEP, 1/wc_FactoredSSEP)
+fprintf(['Worst case guarantee for GFOM: L||x0-x*||^2/%5.2f \t for SSEP:'...
+    'L||x0-x*||^2/%5.2f \t for factored SSEP: L||x0-x*||^2/%5.2f\n'],...
+    1/wc_GFOM, 1/wc_SSEP, 1/wc_FactoredSSEP)
 fprintf('Error max|h_ij - h_ij''|=%5.4e\n',max(max(abs(Algo.h-h))))
 fprintf('Values for zeta_i (for 1<=i<=N in increasing i ordering):\n')
 Algo.zeta.'
