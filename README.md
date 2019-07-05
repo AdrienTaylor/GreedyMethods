@@ -1,6 +1,6 @@
 # Efficient First-order Methods for Convex Minimization: a Constructive Approach
 
-This code can be used to reproduce the results from the work (on [arXiv](https://arxiv.org/abs/1803.05676), [Mathematical Programming](https://link.springer.com/article/10.1007/s10107-019-01410-2)):
+This code can be used to reproduce the results from the work (on [arXiv](https://arxiv.org/abs/1803.05676), or [Mathematical Programming](https://link.springer.com/article/10.1007/s10107-019-01410-2)):
 
 > [1] Yoel Drori, Adrien B Taylor, "Efficient First-order Methods for Convex Minimization: a Constructive Approach",  	Mathematical Programming, 2019.
 
