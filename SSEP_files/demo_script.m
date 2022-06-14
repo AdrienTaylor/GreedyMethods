@@ -3,7 +3,7 @@
 % fixed-step method for smooth strongly convex minimization)
 clc; clear all;
 
-N     = 10;     % Number of iterations
+N     = 20;     % Number of iterations
 L     = 1;      % Lipschitz constant
 kappa = 100;    % Condition number 1 < kappa <= Inf
 R     = 1;      % Initial condition; i.e., ||x0-x*|| <= R
@@ -36,7 +36,6 @@ if saved
     zeta = Algo.zeta;
     save(fileName,'L','mu','zeta','eta','h','wc_GFOM','wc_SSEP','wc_FactoredSSEP');
 end
-
 
 
 

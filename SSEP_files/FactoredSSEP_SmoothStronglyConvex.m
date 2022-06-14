@@ -48,10 +48,10 @@ zeta = zeros(N,1);
 eta  = zeros(N,1);
 
 hh = - h(2:end,2:end);
-eta(1) = hh(1,1)-1;
+eta(1) = L*hh(1,1)-1;
 for i = 1:N-1
     zeta(i+1) = (hh(i+1,i)-hh(i,i))/(hh(i,i)-1/L);
-    eta(i+1)  = L*(hh(i+1,i+1)-1-zeta(i+1));
+    eta(i+1)  = L*hh(i+1,i+1)-1-zeta(i+1);
 end
 
 % (3) Validate the method via the canonical form
